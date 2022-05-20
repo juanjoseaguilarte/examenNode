@@ -1,1 +1,29 @@
+// Peticiones Clients -----------------
+
 GET http://localhost:3000/api/clients
+
+###
+POST http://localhost:3000/api/clients
+Content-Type: application/json
+
+{
+    "id": "5",
+    "nombre": "JUAN2",
+    "apellidos": "AGUILARTE2",
+    "direccion": "CALLE2",
+    "telefono": "666662",
+    "fecha_nacimiento": null,
+    "dni": "22222",
+    "email": "DSDSSD@DSSD.COM22"
+}
+###
+PUT http://localhost:3000/api/clients/2
+Content-Type: application/json
+
+{
+"id": 2,
+"nombre": "Raúl López22222"
+}
+### 
+DELETE http://localhost:3000/api/clients/3
+
