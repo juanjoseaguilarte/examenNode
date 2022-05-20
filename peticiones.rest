@@ -20,7 +20,13 @@ PUT http://localhost:3000/api/clients/edit/13
 Content-Type: application/json
 
 {
-"nombre": "Raúl López22222"
+    "nombre": "JUAN2 - Actualizado",
+    "apellidos": "AGUILARTE2",
+    "direccion": "CALLE2",
+    "telefono": "666662",
+    "fecha_nacimiento": null,
+    "dni": "22222",
+    "email": "DSDSSD@DSSD.COM22"
 }
 ### 
 DELETE http://localhost:3000/api/clients/delete/12
@@ -47,7 +53,10 @@ PUT http://localhost:3000/api/travels/edit/5
 Content-Type: application/json
 
 {
+"fecha_salida": "2022/12/12",
+"fecha_vuelta": "2022/12/13",
 "id_vuelo_ida": 5,
+"id_vuelo_vuelta": 4,
 "hotel_id": 10
 }
 
