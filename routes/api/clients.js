@@ -24,21 +24,21 @@ router.post("/", async (req, res) => {
 router.put("/:clienteId", async (req, res) => {
   try {
     const result = await update(req.params.clienteId, req.body);
-    const clienteUpdated = await getById(req.params.clienteId);
-    res.json(clienteUpdated);
+    const clientUpdated = await getById(req.params.clienteId);
+    res.json(clientUpdated);
   } catch (err) {
     console.log(err);
     res.json({ message: err.message });
   }
 });
 
-router.delete("/:clienteId", async (req, res) => {
+router.delete("/:clientId", async (req, res) => {
     try {
-        const cliente = await getById(req.params.clienteId);
-        if (cliente === null) {
+        const client = await getById(req.params.clientId);
+        if (client === null) {
             return res.send("No se ha encontrado el cliente"); 
         }
-        const result = await deleteById(req.params.clienteId);
+        const result = await deleteById(req.params.clientId);
         console.log(result)
         res.send('Cliente borrado con éxito');
     } catch (err) {

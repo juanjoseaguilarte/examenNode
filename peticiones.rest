@@ -53,3 +53,33 @@ Content-Type: application/json
 
 ### 
 DELETE http://localhost:3000/api/travels/6
+
+# PETICIONE VIAJES --------------------
+
+###
+GET http://localhost:3000/api/hotels
+
+###
+POST http://localhost:3000/api/hotels
+Content-Type: application/json
+
+{
+    "nombre": "Hotel1", 
+    "direccion": "Direccion1", 
+    "ciudad": "Ciudad1", 
+    "num_estrellas": 4, 
+    "descripcion": "descripcion 1",
+    "tarifa": 30
+}
+
+###
+PUT http://localhost:3000/api/hotels/2
+Content-Type: application/json
+
+{
+    "nombre": "Hotel Cambiada", 
+    "direccion": "Direccion Cambiada" 
+}
+
+### 
+DELETE http://localhost:3000/api/hotels/1
