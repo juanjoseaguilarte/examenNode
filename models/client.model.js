@@ -5,27 +5,11 @@ const getAll = () => {
 };
 //nombre, apellidos, dirección, teléfono, fecha de nacimiento, email, dni
 const create = ({
-  id,
-  nombre,
-  apellidos,
-  direccion,
-  telefono,
-  fecha_nacimiento,
-  email,
-  dni
+  nombre, apellidos, direccion, telefono, fecha_nacimiento, email, dni
 }) => {
   return executeQuery(
-    "insert into clientes (id, nombre, apellidos, direccion, telefono, fecha_nacimiento, email, dni) values(?, ?, ?, ?, ?, ?, ?, ?)",
-      [
-      id,
-      nombre,
-      apellidos,
-      direccion,
-      telefono,
-      fecha_nacimiento,
-      email,
-      dni
-    ]
+    "insert into clientes (nombre, apellidos, direccion, telefono, fecha_nacimiento, email, dni) values(?, ?, ?, ?, ?, ?, ?)",
+      [ nombre, apellidos, direccion, telefono, fecha_nacimiento, email, dni ]
   );
 };
 
@@ -33,18 +17,13 @@ const getById = (pClienteId) => {
   return executeQueryOne("select * from clientes where id = ?", [pClienteId]);
 };
 
-
 const update = (
   pClienteId,
-  { id, nombre, apellidos, direccion, telefono, fecha_nacimiento, email, dni }
+  { nombre, apellidos, direccion, telefono, fecha_nacimiento, email, dni }
 ) => {
   return executeQuery(
-    "update clientes set id = ?, nombre = ?, apellidos = ?, direccion = ?, telefono = ?, fecha_nacimiento = ?, email = ?, dni = ?  where id = ?",
-    [
-      id, nombre, apellidos, direccion, telefono, fecha_nacimiento, email, dni,
-      pClienteId,
-    ]
-  );
+    "update clientes set nombre = ?, apellidos = ?, direccion = ?, telefono = ?, fecha_nacimiento = ?, email = ?, dni = ?  where id = ?",
+    [ nombre, apellidos, direccion, telefono, fecha_nacimiento, email, dni, pClienteId ]);
 };
 
 const deleteById = (pClienteId) => {

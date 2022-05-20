@@ -1,7 +1,5 @@
 const router = require('express').Router();
+const { getAll, create, update, getById, deleteById } = require("../../models/travels.model");
 
-router.get("/", (req, res) => {
-  res.send("En la raiz de hoteles");
-});
 
 module.exports = router;

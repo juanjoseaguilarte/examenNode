@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
   //res.send("En la raiz de clientes")
   try {
     const result = await getAll()
-    res.json(result);
+    res.send(result);
   } catch (err) {
     res.json({ error: err.message })      
   }
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const result = await create(req.body);
-    res.json(newCliente);
+    res.json(result);
   } catch (err) {
     res.json({ error: err.message });
   }
@@ -32,9 +32,14 @@ router.put("/:clienteId", async (req, res) => {
   }
 });
 
-router.delete("/:clienteId", (req, res) => {
+router.delete("/:clienteId", async (req, res) => {
     try {
-        const result = deleteById(req.params.clienteId);
+        const cliente = await getById(req.params.clienteId);
+        if (cliente === null) {
+            return res.send("No se ha encontrado el cliente"); 
+        }
+        const result = await deleteById(req.params.clienteId);
+        console.log(result)
         res.send('Cliente borrado con éxito');
     } catch (err) {
         res.json({ error: err.message });

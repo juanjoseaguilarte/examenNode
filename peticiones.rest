@@ -7,7 +7,6 @@ POST http://localhost:3000/api/clients
 Content-Type: application/json
 
 {
-    "id": "5",
     "nombre": "JUAN2",
     "apellidos": "AGUILARTE2",
     "direccion": "CALLE2",
@@ -17,13 +16,40 @@ Content-Type: application/json
     "email": "DSDSSD@DSSD.COM22"
 }
 ###
-PUT http://localhost:3000/api/clients/2
+PUT http://localhost:3000/api/clients/12
 Content-Type: application/json
 
 {
-"id": 2,
 "nombre": "Raúl López22222"
 }
 ### 
-DELETE http://localhost:3000/api/clients/3
+DELETE http://localhost:3000/api/clients/12
 
+# PETICIONE VIAJES --------------------
+
+###
+GET http://localhost:3000/api/travels
+
+###
+POST http://localhost:3000/api/travels
+Content-Type: application/json
+
+{
+    "fecha_salida": "2022/12/12", 
+    "fecha_vuelta": "2022/12/13", 
+    "id_vuelo_ida": 3, 
+    "id_vuelo_vuelta": 4, 
+    "hotel_id": 3
+}
+
+###
+PUT http://localhost:3000/api/travels/5
+Content-Type: application/json
+
+{
+"id_vuelo_ida": 5,
+"hotel_id": 10
+}
+
+### 
+DELETE http://localhost:3000/api/travels/6
