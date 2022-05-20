@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { getAll, create, update, getById, deleteById } = require("../../models/hotel.model");
 
 router.get("/", async (req, res) => {
-  //res.send("En la raiz de hoteles")
   try {
     const result = await getAll();
     res.send(result);
@@ -11,7 +10,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/new", async (req, res) => {
   try {
     const result = await create(req.body);
     res.json(result);
@@ -21,7 +20,7 @@ router.post("/", async (req, res) => {
 });
 
 
-router.put("/:pHotelId", async (req, res) => {
+router.put("/edit/:pHotelId", async (req, res) => {
   try {
     const result = await update(req.params.pHotelId, req.body);
     const travelUpdated = await getById(req.params.pHotelId);
@@ -32,7 +31,7 @@ router.put("/:pHotelId", async (req, res) => {
   }
 });
 
-router.delete("/:pHotelId", async (req, res) => {
+router.delete("/delete/:pHotelId", async (req, res) => {
   try {
     const hotel = await getById(req.params.pHotelId);
     if (hotel === null) {

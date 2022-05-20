@@ -3,7 +3,7 @@ const { executeQuery, executeQueryOne } = require("../helpers/utils");
 const getAll = () => {
   return executeQuery("select * from hoteles");
 };
-//fecha_salida, fecha_vuelta, id_vuelo_ida, id_vuelo_vuelta, hotel_id
+
 const create = ({
     nombre, direccion, ciudad, num_estrellas, descripcion, tarifa
 }) => {

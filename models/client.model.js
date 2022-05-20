@@ -3,7 +3,7 @@ const { executeQuery, executeQueryOne } = require("../helpers/utils");
 const getAll = () => {
   return executeQuery("select * from clientes");
 };
-//nombre, apellidos, dirección, teléfono, fecha de nacimiento, email, dni
+
 const create = ({
   nombre, apellidos, direccion, telefono, fecha_nacimiento, email, dni
 }) => {
@@ -30,10 +30,15 @@ const deleteById = (pClienteId) => {
   return executeQuery("delete from clientes where id = ?", [pClienteId]);
 };
 
+const createClientTravel = (idCliente, idTravel) => {
+  return executeQuery("insert into clientes_viajes (cliente_id, viaje_id) values(?, ?)",[idCliente, idTravel] )
+}
+
 module.exports = {
   getAll,
   create,
   getById,
   update,
   deleteById,
+  createClientTravel
 };

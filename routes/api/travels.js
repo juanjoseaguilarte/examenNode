@@ -11,16 +11,20 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/new/:pHotels", async (req, res) => {
   try {
-    const result = await create(req.body);
-    res.send("Se ha creado el viaje con éxito");
-  } catch (err) {
-    res.json({ error: err.message });
+    let newTravel = req.body
+    newTravel.hotel_id = req.params.pHotels
+    const result = await create(newTravel);
+        
+    res.send(result);
+    } catch (err) {
+        res.send(req.params.pHotels);
+        res.json({ error: err.message });
   }
 });
 
-router.put("/:pTravelId", async (req, res) => {
+router.put("/edit/:pTravelId", async (req, res) => {
   try {
     const result = await update(req.params.pTravelId, req.body);
     const travelUpdated = await getById(req.params.pTravelId);
@@ -31,7 +35,7 @@ router.put("/:pTravelId", async (req, res) => {
   }
 });
 
-router.delete("/:pTravelId", async (req, res) => {
+router.delete("/delete/:pTravelId", async (req, res) => {
   try {
     const travel = await getById(req.params.pTravelId);
     if (travel === null) {

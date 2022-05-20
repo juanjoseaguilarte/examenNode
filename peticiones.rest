@@ -3,7 +3,7 @@
 GET http://localhost:3000/api/clients
 
 ###
-POST http://localhost:3000/api/clients
+POST http://localhost:3000/api/clients/new
 Content-Type: application/json
 
 {
@@ -16,14 +16,14 @@ Content-Type: application/json
     "email": "DSDSSD@DSSD.COM22"
 }
 ###
-PUT http://localhost:3000/api/clients/12
+PUT http://localhost:3000/api/clients/edit/13
 Content-Type: application/json
 
 {
 "nombre": "Raúl López22222"
 }
 ### 
-DELETE http://localhost:3000/api/clients/12
+DELETE http://localhost:3000/api/clients/delete/12
 
 # PETICIONE VIAJES --------------------
 
@@ -31,19 +31,19 @@ DELETE http://localhost:3000/api/clients/12
 GET http://localhost:3000/api/travels
 
 ###
-POST http://localhost:3000/api/travels
+POST http://localhost:3000/api/travels/new/5
 Content-Type: application/json
 
 {
     "fecha_salida": "2022/12/12", 
     "fecha_vuelta": "2022/12/13", 
     "id_vuelo_ida": 3, 
-    "id_vuelo_vuelta": 4, 
-    "hotel_id": 3
+    "id_vuelo_vuelta": 3,
+    "hotel_id": 1
 }
 
 ###
-PUT http://localhost:3000/api/travels/5
+PUT http://localhost:3000/api/travels/edit/5
 Content-Type: application/json
 
 {
@@ -52,15 +52,15 @@ Content-Type: application/json
 }
 
 ### 
-DELETE http://localhost:3000/api/travels/6
+DELETE http://localhost:3000/api/travels/delete/7
 
-# PETICIONE VIAJES --------------------
+# PETICIONE HOTELES --------------------
 
 ###
 GET http://localhost:3000/api/hotels
 
 ###
-POST http://localhost:3000/api/hotels
+POST http://localhost:3000/api/hotels/new
 Content-Type: application/json
 
 {
@@ -73,13 +73,21 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/api/hotels/2
+PUT http://localhost:3000/api/hotels/edit/3
 Content-Type: application/json
 
 {
-    "nombre": "Hotel Cambiada", 
-    "direccion": "Direccion Cambiada" 
+    "nombre": "Hotel - Cambiado", 
+    "direccion": "Direccion1 - Cambiado", 
+    "ciudad": "Ciudad1  - Cambiado", 
+    "num_estrellas": 4, 
+    "descripcion": "descripcion 1  - Cambiado",
+    "tarifa": 30
 }
 
 ### 
-DELETE http://localhost:3000/api/hotels/1
+DELETE http://localhost:3000/api/hotels/delete/2
+
+
+###
+POST http://localhost:3000/api/clients/5/travel/4
